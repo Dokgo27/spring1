@@ -1,11 +1,12 @@
 package hello.hellospring.repository;
 
 import hello.hellospring.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-// 인터페이스 MemberRepository 추상 메소드 구현하는 클래스 MemoryMemberRepository
-public class MemoryMemberRepository implements MemberRepository{
+//@Repository 컴포넌트 스캔: 스프링 컨테이너가 Repository(저장소)라고 인식한다.
+public class MemoryMemberRepository implements MemberRepository{ // 인터페이스 MemberRepository 추상 메소드 구현하는 클래스 MemoryMemberRepository
 
     private static Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L; // 0부터 key값을 자동으로 +1 해주는 sequence
