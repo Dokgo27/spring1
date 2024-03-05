@@ -4,8 +4,10 @@ import hello.hellospring.domain.Member;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
+
+// JUnit 프레임 워크를 이용해서 테스트 코드를 사용하여 문제를 해결한다.
+// 여러명에서 소스코드를 공유하게 되면 테스트 코드를 사용해야만 한다.
 
 class MemoryMemberRepositoryTest {
 
