@@ -36,6 +36,12 @@ public class MemoryMemberRepository implements MemberRepository{
     public List<Member> findALl() {
         return new ArrayList<>(store.values());
     }
+
+    // 해쉬맵에 들어있는 멤버정보를 싹 비우는 메소드
+    // 테스트 케이스에서 쓰인다
+    public void clearStore(){
+        store.clear();
+    }
 }
 
 /*
