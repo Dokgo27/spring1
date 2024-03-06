@@ -1,8 +1,14 @@
 package hello.hellospring.controller;
 
+import hello.hellospring.domain.Member;
+import org.springframework.ui.Model;
 import hello.hellospring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 /*
 내가 이제까지 만들었던 로직들(MemberService, MemoryMemberRepository..)을 이제 화면에 붙일라고 한다. -> Controller와 ViewTemplate가 이제 필요하다.
 MemberController는 MemberService를 통해서 Member의 정보를 조회하거나 회원가입이 가능할 수 있게 해야한다.(의존관계)
@@ -54,5 +60,26 @@ public class MemberController {
     @Autowired
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
+    }
+
+    @GetMapping("/members/new")
+    public String createForm() {
+        return "members/createMemberForm";
+    }
+
+    @PostMapping("/members/new")
+    public String create(MemberForm form) {
+        Member member = new Member();
+        member.setName(form.getName());
+
+        memberService.join(member);
+        return "redirect:/";
+    }
+
+    @GetMapping("/members")
+    public String list(Model model){
+        List<Member> members = memberService.findMembers();
+        model.addAttribute("members", members);
+        return "members/memberList";
     }
 }
