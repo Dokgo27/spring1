@@ -34,7 +34,7 @@ public class MemoryMemberRepository implements MemberRepository{ // 인터페이
     }
 
     @Override
-    public List<Member> findALl() {
+    public List<Member> findAll() {
         return new ArrayList<>(store.values());
     }
 

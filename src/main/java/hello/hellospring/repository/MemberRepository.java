@@ -16,5 +16,5 @@ public interface MemberRepository {
     // 회원의 이름을 찾는다.
     Optional<Member> findByName(String name);
     // 저장된 모든 회원을 반환한다.
-    List<Member> findALl();
+    List<Member> findAll();
 }
