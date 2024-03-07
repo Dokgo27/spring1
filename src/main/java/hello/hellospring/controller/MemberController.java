@@ -62,17 +62,17 @@ public class MemberController {
         this.memberService = memberService;
     }
 
-    @GetMapping("/members/new")
+    @GetMapping("/members/new") // 회원가입 링크 클릭해서 오면
     public String createForm() {
         return "members/createMemberForm";
-    }
+    } // createMemberForm.html을 반환해라(멤버 가입 페이지)
 
     @PostMapping("/members/new")
-    public String create(MemberForm form) {
+    public String create(MemberForm form) { // 멤버 폼이 매개변수로 들어옵니다(id, name)
         Member member = new Member();
         member.setName(form.getName());
 
-        memberService.join(member);
+        memberService.join(member); // 만들어두었던 멤버 서비스에 회원가입(join) 메서드를 통해 회원을 저장합니다.
         return "redirect:/";
     }
 
