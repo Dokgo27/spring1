@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+//JdbcTemplate을 이용하여 DB연결
 public class JdbcTemplateMemberRepository implements MemberRepository {
 
     // 기존의 원시적인 jdbc의 코드를 줄일 수 있는 jdbcTemplate
